@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Macchina Monitor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MACCHINA MONITOR</h1>
+      <p>Painel de monitoramento automotivo</p>
+    </header>
+
+    <main>
+      <section class="painel">
+        <h2>MONITORAMENTO DO MOTOR</h2>
+
+        <div class="conta-giros">
+          <h3>ROTAÇÃO DO MOTOR</h3>
+
+          <div class="mostrador">
+            <div class="escala">RPM x 1000</div>
+            <div class="valor-rpm">
+              <span id="rpmDigital">850</span>
+              <small>RPM</small>
+            </div>
+            <div class="ponteiro" id="ponteiro"></div>
+            <div class="pino-central"></div>
+          </div>
+
+          <div class="marcacao-rpm">
+            <span>0</span>
+            <span>2</span>
+            <span>4</span>
+            <span>6</span>
+            <span class="zona-vermelha">8</span>
+          </div>
+        </div>
+        <div class="controles-aceleracao">
+          <button id="botaoAcelerar">ACELERAR</button>
+          <button id="botaoSoltar">SOLTAR</button>
+        </div>
+        <div class="indicadores">
+          <div class="indicador">
+            <h3>Rotação do motor</h3>
+            <p><span id="rpm">850</span> <small>RPM</small></p>
+          </div>
+
+          <div class="indicador">
+            <h3>Pressão do turbo</h3>
+            <p><span id="turbo">0.0</span> <small>bar</small></p>
+          </div>
+
+          <div class="indicador">
+            <h3>Temperatura do motor</h3>
+            <p><span id="temperatura">85</span> <small>°C</small></p>
+          </div>
+
+          <div class="indicador">
+            <h3>Pressão do óleo</h3>
+            <p><span id="oleo">2.5</span> <small>bar</small></p>
+          </div>
+        </div>
+
+        <button id="botaoLigar">Ligar monitoramento</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>MACCHINA MONITOR | Projeto de desenvolvimento</p>
+      <p id="status">Sistema desligado</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
