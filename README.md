@@ -26,3 +26,8 @@ Este projeto é uma simulação para fins de estudo. Os dados exibidos não vêm
 Autor
 
 Leandrodev7
+Acesso ao projeto
+
+Acesse o Macchina Monitor pelo GitHub Pages:
+
+"Abrir Macchina Monitor" (https://leandrodev7.github.io/Macchina-Monitor/)
