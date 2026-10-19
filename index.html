@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Macchina Monitor</title>
+    <meta name="theme-color" content="#080a08" />
+    <title>Macchina Monitor | Conta-giros</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header>
       <h1>MACCHINA MONITOR</h1>
@@ -19,27 +21,37 @@
         <div class="conta-giros">
           <h3>ROTAÇÃO DO MOTOR</h3>
 
-          <div class="mostrador">
+          <div class="mostrador" id="mostrador">
             <div class="escala">RPM x 1000</div>
+
+            <div class="marcacoes" id="marcacoes"></div>
             <div class="valor-rpm">
               <span id="rpmDigital">850</span>
               <small>RPM</small>
             </div>
+
             <div class="ponteiro" id="ponteiro"></div>
             <div class="pino-central"></div>
-          </div>
 
-          <div class="marcacao-rpm">
+            <div class="modulo-shift" aria-label="Luz de troca de marcha">
+              <div class="shift-text">SHIFT</div>
+              <div class="shift-light" id="shiftLight"></div>
+            </div>
+
+           <div class="legenda-rpm">
             <span>0</span>
             <span>2</span>
             <span>4</span>
             <span>6</span>
             <span class="zona-vermelha">8</span>
+            <span>10</span>
+            <small>RPM x 1000</small>
           </div>
         </div>
+
         <div class="controles-aceleracao">
-          <button id="botaoAcelerar">ACELERAR</button>
-          <button id="botaoSoltar">SOLTAR</button>
+          <button id="botaoAcelerar" type="button">ACELERAR</button>
+          <button id="botaoSoltar" type="button">SOLTAR</button>
         </div>
         <div class="indicadores">
           <div class="indicador">
@@ -63,13 +75,13 @@
           </div>
         </div>
 
-        <button id="botaoLigar">Ligar monitoramento</button>
+        <button id="botaoLigar" type="button">Ligar monitoramento</button>
       </section>
     </main>
 
     <footer>
       <p>MACCHINA MONITOR | Projeto de desenvolvimento</p>
-      <p id="status">Sistema desligado</p>
+      <p id="status" role="status" aria-live="polite">Sistema desligado</p>
     </footer>
 
     <script src="script.js"></script>

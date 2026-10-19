@@ -1,443 +1,402 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --verde: #48ff65;
+  --verde-fraco: rgba(72, 255, 101, 0.22);
+  --vermelho: #ff2525;
+  --prata: #bfc3c5;
+  --fundo: #080a08;
+  --painel: #111411;
+}
+
 body {
-  background-color: #101419;
-  color: white;
-  font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #1b211b 0%, #080a08 65%);
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 header {
-  text-align: center;
-  padding: 25px;
+  padding: 24px 16px 20px;
+  border-bottom: 2px solid #353a35;
 }
 
 header h1 {
-  color: #00e676;
-  margin-bottom: 8px;
+  margin: 0;
+  color: var(--verde);
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px var(--verde-fraco);
 }
 
 header p {
-  color: #b0bec5;
+  margin: 10px 0 0;
+  color: #b7bdb7;
 }
 
 main {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 20px;
+  width: min(100% - 24px, 760px);
+  margin: 26px auto;
 }
 
 .painel {
-  background-color: #1b232c;
-  border: 1px solid #37474f;
-  border-radius: 12px;
-  padding: 25px;
+  padding: 24px 16px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #171b17, #0b0d0b);
+  border: 1px solid #3c433c;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
-.painel h2 {
-  color: #00e676;
-  text-align: center;
-  margin-bottom: 25px;
+.painel > h2 {
+  margin: 0 0 28px;
+  color: #e7e9e7;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
 }
 
-.indicadores {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.indicador {
-  background-color: #101419;
-  border: 1px solid #37474f;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-}
-
-.indicador h3 {
-  color: #b0bec5;
-  font-size: 16px;
-}
-
-.indicador p {
-  color: #00e676;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.indicador small {
-  font-size: 14px;
-  color: #b0bec5;
-}
-
-button {
-  display: block;
-  margin: 25px auto 0;
-  padding: 12px 24px;
-  background-color: #00e676;
-  color: #101419;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #00c853;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #b0bec5;
-}
-
-#status {
-  color: #00e676;
-}
-
-@media (max-width: 600px) {
-  .indicadores {
-    grid-template-columns: 1fr;
-  }
-
-  main {
-    padding: 12px;
-  }
-}
-/* Conta-giros automotivo */
-.conta-giros {
-  text-align: center;
-  margin: 30px auto;
-}
-
-.conta-giros > h3 {
-  color: #b0bec5;
-  letter-spacing: 3px;
-  font-size: 14px;
+.conta-giros h3 {
+  color: #c9ceca;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
 }
 
 .mostrador {
   position: relative;
-  width: 280px;
-  height: 280px;
-  margin: 20px auto 10px;
+  width: min(88vw, 390px);
+  aspect-ratio: 1;
+  margin: 22px auto 12px;
+  overflow: visible;
+  border: 10px solid transparent;
   border-radius: 50%;
-  border: 8px solid #37474f;
-  background: radial-gradient(circle, #263238 0%, #101419 72%);
+  background:
+    radial-gradient(circle, #080908 0 64%, #111411 65% 100%) padding-box,
+    linear-gradient(
+        145deg,
+        #f0f0f0,
+        #777d80 30%,
+        #e4e5e5 52%,
+        #555b5e 75%,
+        #d8d8d8
+      )
+      border-box;
   box-shadow:
-    0 0 20px rgba(0, 230, 118, 0.15),
+    0 0 0 2px #252a26,
+    0 0 20px rgba(0, 0, 0, 0.9),
     inset 0 0 20px #000;
+}
+
+.mostrador::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(72, 255, 101, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .escala {
   position: absolute;
-  top: 45px;
+  top: 20%;
+  left: 0;
   width: 100%;
-  color: #b0bec5;
-  font-size: 12px;
+  color: var(--verde);
+  font-size: 0.72rem;
   letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--verde-fraco);
 }
 
-.valor-rpm {
+.marcacoes {
   position: absolute;
-  top: 115px;
-  width: 100%;
-  color: #00e676;
-  font-size: 34px;
-  font-weight: bold;
-}
-
-.valor-rpm small {
-  display: block;
-  color: #b0bec5;
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-
-.ponteiro {
-  position: absolute;
-  width: 4px;
-  height: 95px;
-  background: #ff1744;
-  left: calc(50% - 2px);
-  top: 42px;
-  border-radius: 4px;
-  transform-origin: center 98px;
-  transform: rotate(-115deg);
-  box-shadow: 0 0 8px rgba(255, 23, 68, 0.6);
-}
-
-.pino-central {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: #eceff1;
-  border: 4px solid #ff1744;
-  border-radius: 50%;
-  left: calc(50% - 13px);
-  top: 126px;
+  inset: 0;
   z-index: 2;
+  pointer-events: none;
 }
 
-.marcacao-rpm {
-  display: flex;
-  justify-content: space-between;
-  max-width: 260px;
-  margin: 0 auto;
-  color: white;
-  font-weight: bold;
+.marcacao {
+  position: absolute;
+  color: #f5f5f5;
+  font-size: clamp(0.9rem, 3.8vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
 }
 
-.marcacao-rpm .zona-vermelha {
-  color: #ff1744;
-}
-
-@media (max-width: 400px) {
-  .mostrador {
-    width: 240px;
-    height: 240px;
-  }
-
-  .valor-rpm {
-    top: 95px;
-  }
-
-  .ponteiro {
-    height: 78px;
-    transform-origin: center 81px;
-  }
-
-  .pino-central {
-    top: 106px;
-  }
-}
-/* Movimento suave do conta-giros */
-.ponteiro {
-  transition: transform 0.35s ease-out;
-}
-/* =====================================
-   MACCHINA MONITOR - ESTILO COMPETICAO
-   ===================================== */
-
-body {
-  background: #090b0e;
-  color: #f2f4f5;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-header {
-  text-align: center;
-  padding: 28px 15px;
-  border-bottom: 2px solid #e53935;
-  background: linear-gradient(180deg, #1a1d22, #090b0e);
-}
-
-header h1 {
-  color: #ffffff;
-  font-size: clamp(25px, 5vw, 38px);
-  letter-spacing: 4px;
-  margin-bottom: 10px;
-  text-shadow: 0 0 12px rgba(229, 57, 53, 0.25);
-}
-
-header p {
-  color: #aeb6bf;
-  letter-spacing: 1px;
-}
-
-.painel {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
-  background: #14181d;
-  border: 1px solid #343b43;
-  border-top: 3px solid #e53935;
-  border-radius: 12px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-}
-
-.painel > h2 {
-  text-align: center;
-  color: #e53935;
-  font-size: 18px;
-  letter-spacing: 3px;
-}
-
-.conta-giros > h3 {
-  color: #c8cdd2;
-}
-
-.mostrador {
-  border-color: #414850;
-  background: radial-gradient(circle, #252a30 0%, #111418 72%);
-  box-shadow:
-    0 0 22px rgba(0, 230, 118, 0.08),
-    inset 0 0 25px #000;
-}
-
-.valor-rpm {
-  color: #00e676;
-  text-shadow: 0 0 12px rgba(0, 230, 118, 0.35);
-}
-
-.ponteiro {
-  background: #ff3030;
-  box-shadow: 0 0 10px rgba(255, 48, 48, 0.65);
-}
-
-.pino-central {
-  border-color: #ff3030;
-}
-
-.marcacao-rpm .zona-vermelha {
+.marcacao:nth-child(n + 9):nth-child(-n + 11) {
   color: #ff3030;
 }
 
-.indicadores {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 30px;
+.traco {
+  position: absolute;
+  width: 2px;
+  height: 7px;
+  border-radius: 2px;
+  background: #d8ded8;
+  transform-origin: center;
 }
 
-.indicador {
-  background: #0d1014;
-  border: 1px solid #303840;
-  border-left: 3px solid #00e676;
-  border-radius: 8px;
-  padding: 18px 12px;
-  text-align: center;
+.traco-principal {
+  width: 3px;
+  height: 13px;
+  background: #48ff65;
+  box-shadow: 0 0 4px rgba(72, 255, 101, 0.45);
 }
 
-.indicador h3 {
-  color: #aeb6bf;
-  font-size: 13px;
+.marcacao {
+  position: absolute;
+  color: #f7f7f7;
+  font-size: clamp(1rem, 4vw, 1.35rem);
+  font-weight: 700;
+  text-shadow: 0 1px 3px #000;
+}
+
+.marcacao-0 {
+  left: 17%;
+  bottom: 26%;
+}
+
+.marcacao-2 {
+  left: 13%;
+  top: 39%;
+}
+
+.marcacao-4 {
+  left: 27%;
+  top: 20%;
+}
+
+.marcacao-6 {
+  right: 27%;
+  top: 20%;
+}
+
+.marcacao-8 {
+  right: 13%;
+  top: 39%;
+  color: var(--vermelho);
+}
+
+.marcacao-10 {
+  right: 13%;
+  bottom: 26%;
+  color: var(--vermelho);
+}
+
+.valor-rpm {
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  transform: translate(-50%, -50%);
+  color: var(--verde);
+  white-space: nowrap;
+  text-shadow: 0 0 10px var(--verde-fraco);
+}
+
+.valor-rpm span {
+  font-size: clamp(1.4rem, 6vw, 2rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.valor-rpm small {
+  font-size: 0.65rem;
   letter-spacing: 1px;
 }
 
-.indicador p {
-  color: #00e676;
-  font-size: 27px;
-  font-weight: bold;
-  margin-bottom: 5px;
+.ponteiro {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  width: 3px;
+  height: 37%;
+  border-radius: 100% 100% 2px 2px;
+  background: linear-gradient(to top, #a40000, var(--vermelho) 70%, #ff8585);
+  box-shadow: 0 0 8px rgba(255, 37, 37, 0.55);
+  transform: translate(-50%, -100%) rotate(-135deg);
+  transform-origin: 50% 100%;
+  transition: transform 0.12s linear;
 }
 
-.indicador small {
-  color: #c8cdd2;
-  font-size: 12px;
+.pino-central {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  width: 19px;
+  height: 19px;
+  border: 3px solid #e5e5e5;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #777, #181818 70%);
+  box-shadow: 0 0 5px #000;
+  transform: translate(-50%, -50%);
+}
+
+.modulo-shift {
+  position: absolute;
+  z-index: 5;
+  top: -3%;
+  left: -1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 42px;
+  padding: 9px 5px;
+  border: 2px solid #858b8e;
+  border-radius: 9px;
+  background: linear-gradient(145deg, #33383a, #101212 65%);
+  box-shadow: 2px 3px 6px #000;
+}
+
+.shift-light {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5b5140;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #6c6049, #211b11 75%);
+  box-shadow: inset 0 0 4px #000;
+  transition:
+    background 0.1s,
+    box-shadow 0.1s;
+}
+
+.shift-light.ativo {
+  border-color: #ffe1a0;
+  background: radial-gradient(circle at 35% 30%, #fff2b0, #ffad22 55%, #e85b00);
+  box-shadow:
+    0 0 8px #ff9d00,
+    0 0 20px #ff7b00,
+    0 0 32px rgba(255, 123, 0, 0.7);
+}
+
+.legenda-rpm {
+  display: none;
+  justify-content: center;
+  gap: clamp(12px, 4vw, 24px);
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0 22px;
+  color: #d9ddd9;
+  font-size: 0.85rem;
+}
+
+.legenda-rpm small {
+  color: var(--verde);
+  font-size: 0.65rem;
 }
 
 .controles-aceleracao {
   display: flex;
   justify-content: center;
   gap: 12px;
-  flex-wrap: wrap;
-  margin: 22px auto;
+  margin: 20px 0 26px;
 }
 
-.controles-aceleracao button,
-#botaoLigar {
-  border: 1px solid #414850;
-  border-radius: 6px;
-  padding: 13px 20px;
-  font-size: 13px;
-  font-weight: bold;
+button {
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid var(--verde);
+  border-radius: 8px;
+  background: #152017;
+  color: var(--verde);
+  font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
+  touch-action: none;
   transition:
-    background 0.2s,
-    transform 0.2s;
+    background 0.15s,
+    transform 0.15s;
 }
 
-.controles-aceleracao button {
-  min-width: 135px;
-  margin: 0;
+button:hover {
+  background: #203625;
 }
 
-#botaoAcelerar {
-  background: #00e676;
-  color: #07100b;
-  border-color: #00e676;
-}
-
-#botaoSoltar {
-  background: #252a30;
-  color: #ffffff;
+button:active {
+  transform: scale(0.97);
 }
 
 #botaoLigar {
-  display: block;
-  margin: 25px auto 0;
-  background: #e53935;
-  color: #ffffff;
-  border-color: #e53935;
+  margin-top: 22px;
+  border-color: var(--prata);
+  background: #252a26;
+  color: #fff;
 }
 
-.controles-aceleracao button:hover,
-#botaoLigar:hover {
-  filter: brightness(1.15);
-  transform: translateY(-2px);
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.indicador {
+  padding: 16px 8px;
+  border: 1px solid #343b34;
+  border-radius: 10px;
+  background: #0b0e0b;
+}
+
+.indicador h3 {
+  margin: 0 0 10px;
+  color: #b7beb7;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.indicador p {
+  margin: 0;
+  color: var(--verde);
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.indicador small {
+  font-size: 0.75rem;
 }
 
 footer {
-  text-align: center;
-  color: #8b949e;
-  padding: 20px 12px;
-  border-top: 1px solid #303840;
+  padding: 10px 16px 24px;
+  color: #929992;
+  font-size: 0.8rem;
 }
 
 #status {
-  color: #00e676;
-  font-size: 13px;
+  color: var(--verde);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 420px) {
   .painel {
-    margin: 18px 10px;
-    padding: 16px 12px;
+    padding: 20px 10px;
+  }
+
+  .controles-aceleracao {
+    gap: 8px;
+  }
+
+  button {
+    padding: 11px 13px;
+    font-size: 0.8rem;
   }
 
   .indicadores {
-    gap: 10px;
-  }
-
-  .indicador {
-    padding: 14px 6px;
-  }
-
-  .indicador h3 {
-    font-size: 11px;
-  }
-
-  .indicador p {
-    font-size: 23px;
-  }
-
-  .controles-aceleracao button {
-    min-width: 115px;
-    padding: 12px 14px;
+    gap: 8px;
   }
 }
-/* Escala do conta-giros - estilo competição */
-.marcacao-rpm {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 260px;
-  margin: 0 auto;
-  padding: 8px 4px;
-  color: #f2f4f5;
-  font-size: 14px;
-  font-weight: bold;
-}
 
-.marcacao-rpm span {
-  min-width: 24px;
-  padding: 5px 3px;
-  border-bottom: 2px solid #68717b;
-}
-
-.marcacao-rpm .zona-vermelha {
-  color: #ff3030;
-  border-bottom-color: #ff3030;
-  text-shadow: 0 0 8px rgba(255, 48, 48, 0.5);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
