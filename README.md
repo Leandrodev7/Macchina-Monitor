@@ -30,4 +30,4 @@ Acesso ao projeto
 
 Acesse o Macchina Monitor pelo GitHub Pages:
 
-"Abrir Macchina Monitor" (https://leandrodev7.github.io/Macchina-Monitor/)
+"Abrir Macchina Monitor" https://macchina-monitor.leandromassuquetto.workers.dev/
