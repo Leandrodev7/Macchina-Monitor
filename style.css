@@ -246,38 +246,41 @@ main {
   top: -3%;
   left: -1%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 7px;
-  width: 42px;
-  padding: 9px 5px;
-  border: 2px solid #858b8e;
-  border-radius: 9px;
-  background: linear-gradient(145deg, #33383a, #101212 65%);
-  box-shadow: 2px 3px 6px #000;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 3px solid #777d80;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #45494b, #17191a 65%, #080909);
+  box-shadow:
+    0 0 0 2px #080909,
+    inset 0 0 7px #000,
+    2px 3px 8px #000;
 }
 
 .shift-light {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #5b5140;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #5a2525;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #6c6049, #211b11 75%);
-  box-shadow: inset 0 0 4px #000;
+  background: radial-gradient(circle at 35% 30%, #702020, #260606 70%);
+  box-shadow:
+    inset 0 0 6px #000,
+    0 0 4px rgba(255, 0, 0, 0.15);
   transition:
-    background 0.1s,
-    box-shadow 0.1s;
+    background 0.15s,
+    box-shadow 0.15s;
 }
 
 .shift-light.ativo {
-  border-color: #ffe1a0;
-  background: radial-gradient(circle at 35% 30%, #fff2b0, #ffad22 55%, #e85b00);
+  border-color: #ff7777;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #ff3030 45%, #a00000);
   box-shadow:
-    0 0 8px #ff9d00,
-    0 0 20px #ff7b00,
-    0 0 32px rgba(255, 123, 0, 0.7);
+    0 0 10px #ff0000,
+    0 0 22px #ff0000,
+    0 0 35px rgba(255, 0, 0, 0.8);
 }
-
 .legenda-rpm {
   display: none;
   justify-content: center;
